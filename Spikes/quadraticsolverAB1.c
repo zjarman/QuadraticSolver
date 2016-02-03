@@ -68,10 +68,10 @@ double evalDiscriminate(double a, double b, double c){
 
 //Evaluate quadratic equation (+ discriminate passed in as value)
 double evalQuadEquation1(double a, double b, double discriminate){
-	return (double)(((-1 * b) + sqrt(discriminate)) / 2*a);
+	return (double)(((-1 * b) + (sqrt(discriminate)) / 2*a));
 }
 
 //Evaluate quadratic equation (- discriminate passed in as value)
 double evalQuadEquation2(double a, double b, double discriminate){
-	return (double)(((-1 * b) - sqrt(discriminate)) / 2*a);
+	return (double)(((-1 * b) - (sqrt(discriminate)) / 2*a));
 }
