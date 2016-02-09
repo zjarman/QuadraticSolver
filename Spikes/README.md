@@ -1,5 +1,12 @@
 Quadratic Solver Spikes Directory
 
-This is where you can place all of your test programs for the Quadratic solver.
+There are 4 directories where we test different functionalities of the Quadratic solver.  Each directory has its own makefile and readme:
 
-Test Case 3 5 2 broke our program.
+Datatypes
+
+Discriminate
+
+Solver
+
+Sqrt
+
