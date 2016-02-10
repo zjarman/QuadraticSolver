@@ -1,6 +1,4 @@
-Test the range of values for:
-	1) Float
-	2) Double
-	3) Long Double
+Datatypes Spikes Directory
 
-The program will print out to the console the min and max of each of these in their order
+Run make to compile DataTypes.c
+The program itself will use defines from the <float.h> header to test various values that need to be tested about floats, doubles, and long doubles. The program takes no input, but will return a string that has the information about our data types neatly organized.
