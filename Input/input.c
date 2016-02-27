@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "input.h"
 
 
 char * getUserInput(char *string2user){
 	/*Declare variables*/
-	char sret[BUFFERSIZE] = {""};
+	char *sret = (char *)malloc(BUFFERSIZE);
 
 	/*Display prompt to user*/
 	printf("\n%s", string2user);
