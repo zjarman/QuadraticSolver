@@ -20,7 +20,7 @@ short discriminateRoots(double a, double b, double c){
 	if(discriminate > 0){
 		/*There will be 2 real roots*/
 		iret = TWOROOTS;
-	}else if(discriminate == 0){
+	}else if(discriminate = 0){
 		/*There will be 1 double root*/
 		iret = DOUBLEROOT;
 	}else{

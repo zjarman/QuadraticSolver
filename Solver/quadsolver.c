@@ -28,14 +28,15 @@ int main(){
 			break;
 		case DOUBLEROOT:
 			/*Evalutate quadratic equation to get 1 double root*/
-			answer1 = evalQuadEquation1(a, b, discriminateRoots(a, b, c));
-			formatoutput(0, a, b, c, answer1, answer2);
+			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
+			formatoutput(1, a, b, c, answer1, answer2);
 			break;
 		case TWOROOTS:
 			/*Evalutate quadratic equation twice to get 2 roots*/
-			answer1 = evalQuadEquation1(a, b, discriminateRoots(a, b, c));
-			answer2 = evalQuadEquation2(a, b, discriminateRoots(a, b, c));
-			formatoutput(0, a, b, c, answer1, answer2);
+
+			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
+			answer2 = evalQuadEquation2(a, b, discriminateVal(a, b, c));
+			formatoutput(2, a, b, c, answer1, answer2);
 			break;
 	}
 	return 0;
