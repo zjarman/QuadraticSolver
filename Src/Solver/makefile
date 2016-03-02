@@ -30,6 +30,6 @@ t1.o: t1.c
 clean:
 	rm *.o *.out discriminate.h input.h outputformatting.h sqrt.h
 pack:
-	cd ../../../; tar -zcvf quadSolver.tar.gz quadraticsolver
+	cd ../; tar -zcvf quadSolver.tar.gz Solver; mv quadSolver.tar.gz ./Deployment
 
 
