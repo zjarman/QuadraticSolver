@@ -4,18 +4,16 @@ CFLAGS = -ansi -I -Wall -Werror -pedantic -std=c99 -mfpmath=387 -D DEBUG=2
 ALLNEEDEDHEADERS = -Idir ../Headers
 CFLAGS2 = -ansi -I -Wall -Werror -pedantic -std=c99 -mfpmath=387 -D DEBUG=55
 
-a.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.o quadsolver.h
-	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.o quadsolver.h $(CFLAGS2) $(LIBS)
+a.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(LIBS)
 
-d.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.o quadsolver.h
-	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.o quadsolver.h $(CFLAGS2) $(LIBS) 
+d.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS2) $(LIBS) 
 
 t1.out: t1.o quadsolver.o quadsolver.h
 	$(CC) -o $@ t1.o quadsolver.o quadsolver.h $(CFLAGS) $(LIBS)
 
 test: t1.out
-
-quadsolver.o: quadsolver.c 
 
 input.o:
 	cd ../Input/; make input.o; mv ../Input/input.o ../Solver; cp ../Input/input.h ../Solver
