@@ -1,0 +1,5 @@
+#include "../Input/input.h"
+#include "../Discriminate/discriminate.h"
+#include "../Solver/quadsolver.h"
+#include "../FormattingOutput/outputformatting.h"
+#include "../Sqrt/sqrt.h"
