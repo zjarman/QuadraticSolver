@@ -15,13 +15,13 @@ int main(){
 
 	/*Get a from user*/
 	a = atof(getUserInput("Please enter your 'a' value:"));
-	#ifdef DEBUG
-	printf("The value of DEBUG: %d", DEBUG);
-	#endif
+	
 	/*Get b from user*/
 	b = atof(getUserInput("Please enter your 'b' value:"));
+	
 	/*Get c from user*/
 	c = atof(getUserInput("Please enter your 'c' value:"));
+	
 
 	/*Determine discriminate code - 0, 1, 2; complex roots, double root, 2 roots*/
 	switch(discriminateRoots(a, b, c)){
@@ -42,5 +42,21 @@ int main(){
 			formatoutput(2, a, b, c, answer1, answer2);
 			break;
 	}
+
+	#ifdef DEBUG
+	printf("\nDEBUG INFO\n----------\n");
+	printf("Value of a entered was: %lf\n", a);
+	printf("Value of b entered was: %lf\n", b);
+	printf("Value of c entered was: %lf\n", c);
+	printf("The discriminate was: %lf\n", discriminateVal(a, b, c));
+	printf("The square root of the discriminate was: %lf\n", sqrt(discriminateVal(a,b,c)));
+	if(discriminateRoots(a,b,c) ==2)
+		printf("There were two roots\n");
+	else if(discriminateRoots(a,b,c) ==1)
+		printf("There was a double root\n");
+	else
+		printf("There were complex solutions\n");
+	printf("----------\n");
+	#endif
 	return 0;
 }

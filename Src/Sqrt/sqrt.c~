@@ -5,5 +5,10 @@
 double mysqrt(double value);
 
 double mysqrt(double value){
+
+	#ifdef DEBUG
+	printf("Taking square root of: %lf\n", value);
+	printf("The square root is: %lf\n", sqrt(value));
+	#endif
 	return sqrt(value);
 }
