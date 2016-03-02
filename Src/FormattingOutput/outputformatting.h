@@ -11,4 +11,4 @@
 
 	Returns: nothing
 */
-char *formatoutput(short type, double a, double b, double c, double answer1, double answer2);
+const char * formatoutput(short type, double a, double b, double c, double answer1, double answer2);

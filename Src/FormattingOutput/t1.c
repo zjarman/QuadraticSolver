@@ -5,20 +5,20 @@
 
 int main(){
 	/*Declare variables*/
-	char *sret = (char *)malloc(1024);
-
-	/*Test complex root output*/
-	sret = formatoutput(0, 1, 2, 3, 25, 25);
-	assert_streq("Error validating root output", sret, "");
 	
 
-	/*Test double root output*/
-	sret = formatoutput(1, 1, 2, 3, 25, 25);
+	/*Test complex root output*/
+	char *sret = formatoutput(0, 1, 2, 3, 25, 25);
+	printf("Made it out of validating 0");
 	assert_streq("Error validating root output", sret, "");
 
+	/*Test double root output*/
+	//sret = ;
+	assert_streq("Error validating root output", formatoutput(1, 1, 2, 3, 25, 25), "");
+
 	/*Test 2 roots output*/
-	sret = formatoutput(2, 1, 2, 3, 25, 25);
-	assert_streq("Error validating root output", sret, "");
+	//sret = ;
+	assert_streq("Error validating root output", formatoutput(2, 1, 2, 3, 25, 25), "");
 
 	return 0;
 }
