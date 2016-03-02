@@ -27,19 +27,19 @@ int main(){
 	switch(discriminateRoots(a, b, c)){
 		case COMPLEX:
 			/*Notify user that there are no real roots, but only complex roots*/
-			formatoutput(0, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(0, a, b, c, answer1, answer2));
 			break;
 		case DOUBLEROOT:
 			/*Evalutate quadratic equation to get 1 double root*/
 			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
-			formatoutput(1, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(1, a, b, c, answer1, answer2));
 			break;
 		case TWOROOTS:
 			/*Evalutate quadratic equation twice to get 2 roots*/
 
 			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
 			answer2 = evalQuadEquation2(a, b, discriminateVal(a, b, c));
-			formatoutput(2, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(2, a, b, c, answer1, answer2));
 			break;
 	}
 
