@@ -15,6 +15,9 @@ int main(){
 
 	/*Get a from user*/
 	a = atof(getUserInput("Please enter your 'a' value:"));
+	#ifdef DEBUG
+	printf("The value of DEBUG: %d", DEBUG);
+	#endif
 	/*Get b from user*/
 	b = atof(getUserInput("Please enter your 'b' value:"));
 	/*Get c from user*/
