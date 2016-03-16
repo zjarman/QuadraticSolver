@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <assert.h>
 #include <math.h> 
 
@@ -96,13 +95,6 @@ int cunit_init();
 #define assert_flt(str,a,b) { \
   if( a >= b ) { \
     fprintf(cunit_log, "%s  LINE %d: %s, %24.16f !< %24.16f\n", \
-              __FILE__ , __LINE__ , str , a , b ); \
-  } \
-}
-
-#define assert_streq(str, a, b){ \
-  if(strcmp(a, b) != 0){ \
-    fprintf(cunit_log, "%s  LINE %d: %s, %s != %s\n", \
               __FILE__ , __LINE__ , str , a , b ); \
   } \
 }

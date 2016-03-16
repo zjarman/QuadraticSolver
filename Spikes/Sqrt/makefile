@@ -1,6 +1,6 @@
 CC = gcc
 $LIBS = -lm
-$CFLAGS = -ansi -I -Wall -Werror -g -pedantic -frounding-math-fsignaling-nans
+CFLAGS = -ansi -I -Wall -Werror -pedantic -std=c99 -mfpmath=387
 
 test: t1 t2 t3
 	t1

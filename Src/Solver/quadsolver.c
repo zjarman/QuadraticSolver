@@ -8,10 +8,11 @@
 /*Prototypes*/
 double evalQuadEquation1(double a, double b, double discriminate);
 double evalQuadEquation2(double a, double b, double discriminate);
+double * quadsolver();
 
-int main(){
+double * quadsolver(){
 	/*Declare variables*/
-	double a = 0, b = 0, c = 0, answer1 = 0, answer2 = 0;
+	double a = 0, b = 0, c = 0, answer1 = 0, answer2 = 0, *dret = (double *)calloc(2,sizeof(double));
 
 	/*Get a from user*/
 	a = atof(getUserInput("Please enter your 'a' value:"));
@@ -27,19 +28,24 @@ int main(){
 	switch(discriminateRoots(a, b, c)){
 		case COMPLEX:
 			/*Notify user that there are no real roots, but only complex roots*/
-			formatoutput(0, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(0, a, b, c, answer1, answer2));
 			break;
 		case DOUBLEROOT:
 			/*Evalutate quadratic equation to get 1 double root*/
 			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
-			formatoutput(1, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(1, a, b, c, answer1, answer2));
+			/*Set return value*/
+			dret[0] = answer1;
+			dret[1] = answer1;
 			break;
 		case TWOROOTS:
 			/*Evalutate quadratic equation twice to get 2 roots*/
-
 			answer1 = evalQuadEquation1(a, b, discriminateVal(a, b, c));
 			answer2 = evalQuadEquation2(a, b, discriminateVal(a, b, c));
-			formatoutput(2, a, b, c, answer1, answer2);
+			printf("\n%s\n",formatoutput(2, a, b, c, answer1, answer2));
+			/*Set return values*/
+			dret[0] = answer1;
+			dret[1] = answer2;
 			break;
 	}
 
@@ -58,5 +64,13 @@ int main(){
 		printf("There were complex solutions\n");
 	printf("----------\n");
 	#endif
-	return 0;
+	return dret;
+}
+
+double evalQuadEquation1(double a, double b, double discriminate){
+	return (double)(((-1 * b) + sqrt(discriminate)) / (2*a));
+}
+
+double evalQuadEquation2(double a, double b, double discriminate){
+	return (double)(((-1 * b) - sqrt(discriminate)) / (2*a));
 }
