@@ -33,6 +33,6 @@ cunit.o:
 clean:
 	rm *.o *.out discriminate.h input.h outputformatting.h sqrt.h
 pack:
-	cd ../; tar -zcvf quadSolver.tar.gz Solver; mv quadSolver.tar.gz ./Deployment
+	cd ../../; tar -zcvf quadSolver.tar.gz Src; mv quadSolver.tar.gz ./Src/Deployment
 
 
