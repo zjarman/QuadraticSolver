@@ -1,17 +1,17 @@
 CC = gcc
 LIBS = -lm
-CFLAGS = -ansi -I -Wall -Werror -pedantic -std=c99 -mfpmath=387 
+CFLAGS = -ansi -I ../Headers -Wall -pedantic -std=c99 -mfpmath=387 
 ALLNEEDEDHEADERS = -Idir ../Headers
 DEBUG = -D DEBUG=55
 
-a.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
-	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(LIBS)
+a.out: main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+	$(CC) -o $@ main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(LIBS)
 
-d.out: input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
-	$(CC) -o $@ input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(DEBUG) $(LIBS) 
+d.out: main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+	$(CC) -o $@ main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(DEBUG) $(LIBS) 
 
-t1.out: t1.o quadsolver.o quadsolver.h
-	$(CC) -o $@ t1.o quadsolver.o quadsolver.h $(CFLAGS) $(LIBS)
+t1.out: t1.c cunit.o input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+	$(CC) -o $@ t1.c cunit.o input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(LIBS)
 
 test: t1.out
 
@@ -27,7 +27,8 @@ outputformatting.o:
 sqrt.o:
 	cd ../Sqrt/; make sqrt.o; mv ../Sqrt/sqrt.o ../Solver; cp ../Sqrt/sqrt.h ../Solver
 
-t1.o: t1.c
+cunit.o:
+	cd ../Headers/; make cunit.o; mv ../Headers/cunit.o ../Solver
 
 clean:
 	rm *.o *.out discriminate.h input.h outputformatting.h sqrt.h
