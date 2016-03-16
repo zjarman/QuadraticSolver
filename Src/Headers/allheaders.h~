@@ -1,4 +1,0 @@
-#include "input.h"
-#include "discriminate.h"
-#include "quadsolver.h"
-#include "outputformatting.h"
