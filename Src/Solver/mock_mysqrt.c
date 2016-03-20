@@ -35,7 +35,7 @@ static int    flag  = -1;
 // expecting arguement lx within leps absolute error
 // return    result    lsqrtx
 void mock_setup_mysqrt(double lx, double lsqrtx, double calcErr) {
-	ex = x;
+	ex = lx;
 	err = calcErr;
 	sqrtx = lsqrtx;
 	count = 0;

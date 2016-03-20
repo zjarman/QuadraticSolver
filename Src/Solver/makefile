@@ -10,14 +10,18 @@ a.out: main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h output
 d.out: main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
 	$(CC) -o $@ main.c input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(DEBUG) $(LIBS) 
 
-t1: t1.o cunit.o input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
+t1: a.out t1.o cunit.o input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h
 	$(CC) -o $@ t1.o cunit.o input.o input.h discriminate.o discriminate.h sqrt.o sqrt.h outputformatting.o outputformatting.h quadsolver.c quadsolver.h $(CFLAGS) $(LIBS)
 # mock mysqrt tester
-t2: t2.o quadsolver.o mock_mysqrt.o cunit.o input.o discriminate.o outputformatting.o
+t2: a.out t2.o quadsolver.o mock_mysqrt.o cunit.o input.o discriminate.o outputformatting.o
 	${CC} -o $@ t2.o quadsolver.o mock_mysqrt.o cunit.o input.o discriminate.o outputformatting.o $(CFLAGS) ${LIBS}
-test: a.out t1 t2
+# mock discriminate tester
+t3: a.out t3.o quadsolver.o mock_discriminate.o cunit.o input.o sqrt.o outputformatting.o
+	${CC} -o $@ t3.o quadsolver.o mock_discriminate.o cunit.o input.o sqrt.o outputformatting.o $(CFLAGS) ${LIBS}
+test: a.out t1 t2 t3
 	./t1
 	./t2
+	./t3
 input.o:
 	cd ../Input/; make input.o; mv ../Input/input.o ../Solver; cp ../Input/input.h ../Solver
 
@@ -33,13 +37,14 @@ sqrt.o:
 #cunit.o:
 #	cd ../Headers/; make cunit.o; mv ../Headers/cunit.o ../Solver
 
-mock_qsolve_sqrt.o: mock_mysqrt.h qsolve_sqrt.h 
+#mock_qsolve_sqrt.o: mock_mysqrt.h qsolve_sqrt.h 
 cunit.o: cunit.h
 t1.o: cunit.h quadsolver.h 
 t2.o: cunit.h quadsolver.h mock_mysqrt.h
+t3.o: cunit.h quadsolver.h mock_discriminate.h
 
 clean:
-	rm *.o *.out discriminate.h input.h outputformatting.h sqrt.h t1 t2
+	rm *.o *.out discriminate.h input.h outputformatting.h sqrt.h t1 t2 t3
 pack:
 	cd ../../; tar -zcvf quadSolver.tar.gz Src; mv quadSolver.tar.gz ./Src/Deployment
 
