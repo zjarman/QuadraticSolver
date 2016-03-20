@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "input.h"
 #include "discriminate.h"
+#include "sqrt.h"
 #include "quadsolver.h"
 #include "outputformatting.h"
 
@@ -68,9 +69,9 @@ double * quadsolver(){
 }
 
 double evalQuadEquation1(double a, double b, double discriminate){
-	return (double)(((-1 * b) + sqrt(discriminate)) / (2*a));
+	return (double)(((-1 * b) + mysqrt(discriminate)) / (2*a));
 }
 
 double evalQuadEquation2(double a, double b, double discriminate){
-	return (double)(((-1 * b) - sqrt(discriminate)) / (2*a));
+	return (double)(((-1 * b) - mysqrt(discriminate)) / (2*a));
 }
