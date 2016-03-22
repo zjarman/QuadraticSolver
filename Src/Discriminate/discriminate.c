@@ -3,7 +3,7 @@
 
 double discriminateVal(double a, double b, double c){
 	/*Evaluate discriminate and return to calling function*/
-	return (double)((b * b) - 4*a*c);
+	return (double)((b * b) - 4.0*a*c);
 }
 
 
